@@ -1,4 +1,4 @@
-.PHONY: all build clean seguranca
+.PHONY: all build clean
 
 all: build
 
