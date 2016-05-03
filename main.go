@@ -40,10 +40,7 @@ func authSg(ip string, protocol string, svc *ec2.EC2) {
 }
 
 func main() {
-	// Create an EC2 service object in the "us-west-2" region
-	// Note that you can also configure your region globally by
-	// exporting the AWS_REGION environment variable
-	svc := ec2.New(session.New(), &aws.Config{Region: aws.String("us-east-1")})
+	svc := ec2.New(session.New(), &aws.Config{Region: aws.String(os.Getenv("RF_SECURITY_GROUP_REGION"))})
 
 	res, err := http.Get("https://app.rainforestqa.com/api/1/vm_stack")
 	if err != nil {
